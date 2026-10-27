@@ -1,0 +1,114 @@
+/* Connecting the Poppins font from Google Fonts and connecting BlackChancery font from CDNFonts*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap");
+
+/* RESET DEFAULT STYLES FOR ALL ELEMENTS */
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-sizing: border-box; /* Makes layout calculation easier */
+}
+
+/* BASE STYLES FOR HTML AND BODY */
+html,
+body,
+#root {
+  min-height: 100vh;
+  min-height: 100dvh; /* Fixes height bug on mobile browsers */
+  -webkit-font-smoothing: antialiased; /* Makes fonts look smoother */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  line-height: 1.2; /* Adds small space between lines so text does not overlap */
+}
+
+/* LINKS AND LISTS */
+a {
+  text-decoration: none;
+  color: inherit; /* Inherits color from the parent element */
+  display: inline-block;
+}
+
+li {
+  list-style: none; /* Removes default dots or numbers from lists */
+}
+
+/* IMAGES */
+img {
+  vertical-align: top;
+  max-width: 100%; /* Prevents images from breaking the layout */
+  height: auto;
+}
+
+/* HEADINGS */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit; /* Removes default browser sizes for headings */
+}
+
+/* FORM ELEMENTS */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  background-color: transparent; /* Removes default grey background */
+}
+
+button,
+select,
+option {
+  cursor: pointer; /* Shows hand icon on hover */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea {
+  appearance: none;
+  outline: none; /* Removes default browser blue outline */
+}
+
+/* ================================================================================================ */
+
+:root {
+  /* Color palette */
+  --bg-dark: #1a0b28;
+  --main-bg-black: #000000;
+  --primary: #7300ff;
+  --color-primary-hover: #a855f7;
+  --white: #ffffff;
+
+  /* Text  */
+  --font-poppins: "Poppins", sans-serif;
+  --font-logo: "Cormorant Garamond", serif;
+}
+
+body {
+  font-family: var(--font-poppins);
+  background-color: var(--main-bg-black);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* Main centering container */
+
+.container {
+  width: 100%;
+  max-width: 1730px;
+  margin-inline: auto;
+  padding-inline: 30px;
+}

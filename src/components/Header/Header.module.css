@@ -1,0 +1,344 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s ease-in-out;
+}
+
+.headerHidden {
+  transform: translateY(-100%);
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  padding-block: clamp(
+    0.9375rem,
+    0.525rem + 2.0625vw,
+    3rem
+  ); /* 48/15>1920-320 */
+}
+
+.headerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  column-gap: clamp(
+    1.25rem,
+    0.5625rem + 3.4375vw,
+    4.6875rem
+  ); /* 75/20>1920-320 */
+}
+
+.wrapperLeft {
+  display: flex;
+  align-items: center;
+  column-gap: clamp(
+    1.25rem,
+    0.5625rem + 3.4375vw,
+    4.6875rem
+  ); /* 75/20>1920-320 */
+}
+
+.logo {
+  font-family: var(--font-logo);
+  font-size: clamp(1.5rem, 1.4rem + 0.5vw, 2rem); /* 32/24>1920-320 */
+  text-transform: capitalize;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.logo span {
+  font-size: clamp(2rem, 1.9rem + 0.5vw, 2.5rem); /* 40/32>1920-320 */
+}
+
+.logo::first-letter {
+  color: var(--primary);
+}
+
+.logo:hover {
+  color: var(--color-primary-hover);
+  transition: color 0.3s ease;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  font-size: clamp(
+    1.25rem,
+    1.1375rem + 0.5625vw,
+    1.8125rem
+  ); /* 29/20>1920-320 */
+  gap: clamp(1.5rem, 1.2rem + 1.5vw, 3rem); /* 48/24>1920-320 */
+}
+
+.navList a {
+  transition: color 0.3s ease;
+}
+
+.navList a:hover {
+  color: var(--color-primary-hover);
+}
+
+.navList a.active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.searchForm {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 200px;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.searchBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  color: #ffffff;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.searchBtn:hover {
+  color: var(--color-primary-hover);
+  transform: scale(1.05);
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.searchInput {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 2.25rem 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 0.875rem;
+  outline: none;
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.searchInput:focus {
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.clearBtn {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  border-radius: 50%;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.clearBtn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.mobileSearchToggleBtn,
+.mobileSearchRow,
+.menuBtn {
+  display: none;
+}
+
+@media (max-width: 767.98px) {
+  .headerContainer {
+    gap: 0.625rem;
+  }
+
+  .menuBtn,
+  .mobileSearchToggleBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    flex-shrink: 0;
+    animation: fadeInScale 0.25s ease-in-out;
+  }
+
+  .searchForm {
+    display: none;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    min-height: calc(100vh - 100%);
+    overflow-y: auto;
+    max-height: calc(100vh - 100%);
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navOpen {
+    display: block;
+  }
+
+  .navList {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mobileSearchRow {
+    display: flex;
+    width: 100%;
+    animation: slideDown 0.25s ease-in-out;
+  }
+
+  .mobileSearchForm {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .mobileInputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .mobileSearchIcon {
+    position: absolute;
+    left: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .mobileSearchInput {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.6rem 2.25rem 0.6rem 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    outline: none;
+    backdrop-filter: blur(8px);
+  }
+
+  .mobileSearchInput:focus {
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .cancelSearchBtn {
+    background: transparent;
+    border: none;
+    border-radius: 0.5rem;
+    color: #ffffff;
+    font-size: 0.95rem;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 0.625rem;
+    background-color: var(--primary);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
